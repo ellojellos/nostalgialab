@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Time</title>
+    <head>
+    </head>
+<body class="tv-page">
+<link rel="stylesheet" href="styles.css">
+<h1 style="text-shadow: 2px 2px #0ff;">CRT TV Room</h1>
+
+<div class="tv-frame">
+    <div class="tv-image"></div> <!-- TV Frame -->
+    <div class="tv-wrapper" id="tvBox">
+        <video id="tvVideo" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay muted loop></video>
+        <div class="static-overlay" id="static"></div>
+    </div>
+</div>
+
+<div class="remote-container">
+    <img src="gallery/remote.png" usemap="#remoteMap" alt="Remote Control" class="remote-image">
+    <map name="remoteMap">
+        <!-- Power Button -->
+        <area shape="circle" coords="150,30,20" onclick="powerToggle()" alt="Power Button">
+
+        <!-- Guide Button -->
+        <area shape="rect" coords="120,120,180,150" onclick="openGuide()" alt="Guide Button">
+
+        <!-- Channel Up/Down -->
+        <area shape="circle" coords="150,200,20" onclick="changeChannel('up')" alt="Channel Up">
+        <area shape="circle" coords="150,260,20" onclick="changeChannel('down')" alt="Channel Down">
+
+        <!-- Volume Up/Down -->
+        <area shape="circle" coords="100,230,20" onclick="volumeControl('up')" alt="Volume Up">
+        <area shape="circle" coords="200,230,20" onclick="volumeControl('down')" alt="Volume Down">
+
+        <!-- Channel Buttons -->
+        <area shape="circle" coords="80,320,20" onclick="changeChannel(1)" alt="Channel 1">
+        <area shape="circle" coords="150,320,20" onclick="changeChannel(2)" alt="Channel 2">
+        <area shape="circle" coords="220,320,20" onclick="changeChannel(3)" alt="Channel 3">
+        <area shape="circle" coords="80,370,20" onclick="changeChannel(4)" alt="Channel 4">
+        <area shape="circle" coords="150,370,20" onclick="changeChannel(5)" alt="Channel 5">
+        <area shape="circle" coords="220,370,20" onclick="changeChannel(6)" alt="Channel 6">
+        <area shape="circle" coords="80,420,20" onclick="changeChannel(7)" alt="Channel 7">
+        <area shape="circle" coords="150,420,20" onclick="changeChannel(8)" alt="Channel 8">
+        <area shape="circle" coords="220,420,20" onclick="changeChannel(9)" alt="Channel 9">
+        <area shape="circle" coords="80,470,20" onclick="changeChannel(10)" alt="Channel 10">
+        <area shape="circle" coords="150,470,20" onclick="changeChannel(11)" alt="Channel 11">
+        <area shape="circle" coords="220,470,20" onclick="changeChannel(12)" alt="Channel 12">
+        <area shape="circle" coords="80,520,20" onclick="changeChannel(13)" alt="Channel 13">
+        <area shape="circle" coords="150,520,20" onclick="changeChannel(14)" alt="Channel 14">
+        <area shape="circle" coords="220,520,20" onclick="changeChannel(15)" alt="Channel 15">
+    </map>
+</div>
+
+<audio id="staticSound" src="static.mp3"></audio>
+
+<script>
+const tvBox = document.getElementById("tvBox");
+const staticOverlay = document.getElementById("static");
+const staticSound = document.getElementById("staticSound");
+
+const channels = [
+    "https://www.youtube.com/embed/Db9eo6NBdi8?autoplay=1&mute=1", // Channel 1
+    "https://www.youtube.com/embed/3JZ_D3ELwOQ?autoplay=1&mute=1", // Channel 2
+    "https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1"  // Channel 3
+];
+
+let currentChannel = 0;
+let isOn = true;
+
+function powerToggle() {
+    isOn = !isOn;
+    if (isOn) {
+        tvBox.innerHTML = `<iframe 
+            width="100%" 
+            height="100%" 
+            src="${channels[currentChannel]}" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+        </iframe>`;
+    } else {
+        tvBox.innerHTML = ""; // Turn off the TV
+    }
+}
+
+function changeChannel(input) {
+    if (!isOn) return;
+
+    staticOverlay.style.opacity = 1;
+    staticSound.play();
+
+    setTimeout(() => {
+        staticOverlay.style.opacity = 0;
+
+        if (input === 'up') {
+            currentChannel = (currentChannel + 1) % channels.length;
+        } else if (input === 'down') {
+            currentChannel = (currentChannel - 1 + channels.length) % channels.length;
+        } else {
+            currentChannel = (input - 1) % channels.length;
+        }
+
+        tvBox.innerHTML = `<iframe 
+            width="100%" 
+            height="100%" 
+            src="${channels[currentChannel]}" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+        </iframe>`;
+    }, 800);
+}
+
+function volumeControl(direction) {
+    alert("Volume control is not supported for YouTube videos.");
+}
+
+function openGuide() {
+    alert("TV guide is coming soon!");
+}

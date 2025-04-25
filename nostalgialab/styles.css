@@ -1,0 +1,634 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special_Elite&display=swap');
+/* CSS for the index page starts here */
+.index-page * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.index-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #000 url('gallery/starfield.jpg') repeat;
+    font-family: "Lilita One", sans-serif;
+}
+
+.index-page .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 100%;
+    padding: 2rem;
+}
+
+.index-page .nav {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.index-page .player {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.index-page .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    margin: 0 auto 2rem auto;
+    max-width: 490px;
+    background: linear-gradient(180deg, #0b4ccc, #3119a3);
+    border: 5px solid #CCFF00;
+    border-radius: 40px;
+    color: transparent;
+    background-clip: padding-box;
+    background-origin: padding-box, border-box;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 5px #000;
+}
+
+.index-page .title::before {
+    content: "NOSTALGIA LAB";
+    font-family: "Lilita One", cursive;
+    text-transform: uppercase;
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: -2px;
+    transform-origin: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #f7f700, #19E82A);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-stroke: 2px #000;
+    transform-origin: center;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.index-page .title span {
+    visibility: hidden;
+}
+
+.index-page .btn1,
+.index-page .btn2,
+.index-page .btn3,
+.index-page .btn4,
+.index-page .btn5,
+.index-page .btn6 {
+    display: inline-block;
+    width: 200px;
+    height: 80px;
+    line-height: 80px;
+    margin: 0.5rem;
+    text-decoration: none;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #39FF14;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    -webkit-text-stroke: 0.5px #000;
+    border: 5px solid #CCFF00;
+    border-radius: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: inset 0 0 0 4px #3423A6;
+}
+
+.index-page .btn1 {
+    background: linear-gradient(180deg, #3236AF, #8E09BC, #8E09BC);
+}
+
+.index-page .btn2 {
+    background: linear-gradient(180deg, #49209B, #9A13AC);
+}
+
+.index-page .btn3 {
+    background: linear-gradient(180deg, #6B1B8C, #B61594, #B61594);
+}
+
+.index-page .btn4 {
+    background: linear-gradient(180deg, #4D20A6, #8D14B2, #8D14B2);
+    border-radius: 15px;
+}
+
+.index-page .btn5 {
+    background: linear-gradient(180deg, #651B92, #B7177C);
+    border-radius: 15px;
+}
+
+.index-page .btn6 {
+    width: 300px;
+    height: 90px;
+    font-size: 5rem;
+    background: linear-gradient(180deg, #38C929, #38C929, #F6F300);
+    border-radius: 30px;
+}
+
+.index-page .btn1:hover,
+.index-page .btn2:hover,
+.index-page .btn3:hover,
+.index-page .btn4:hover,
+.index-page .btn5:hover,
+.index-page .btn6:hover {
+    box-shadow: inset 0 0 0 4px #3423A6, 0 0 12px rgba(204, 255, 0, 0.8);
+}
+
+.index-page .btn-enter {
+    width: 300px;
+    height: 90px;
+    line-height: 80px;
+    font-size: 5rem;
+    border-radius: 80px;
+    background: linear-gradient(180deg, #38C929, #38C929, #F6F300);
+    box-shadow: inset 0 0 0 4px #3423A6;
+}
+
+.index-page .ipod {
+    position: relative;
+    width: 260px;
+    transform: rotate(-10deg);
+    transform-origin: bottom left;
+}
+
+.index-page .ipod img {
+    width: 100%;
+    display: block;
+}
+
+.index-page .ipod-screen {
+    position: absolute;
+    top: 11%;
+    left: 50%;
+    width: 32%;
+    height: 13%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 0.8rem;
+}
+
+.index-page .wheel-button {
+    position: absolute;
+    width: 16%;
+    height: 16%;
+    cursor: pointer;
+}
+
+.index-page .wheel-left {
+    bottom: 20%;
+    left: 27%;
+}
+
+.index-page .wheel-right {
+    bottom: 20%;
+    right: 27%;
+}
+
+.index-page .wheel-bottom {
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+    .index-page .container {
+        flex-direction: column;
+    }
+
+    .index-page .btn {
+        width: 140px;
+        height: 45px;
+        line-height: 45px;
+    }
+
+    .index-page .btn-enter {
+        width: 180px;
+        height: 55px;
+        line-height: 55px;
+    }
+
+    .index-page .title {
+        font-size: 2rem;
+        padding: 0.5rem 1.2rem;
+    }
+
+    .index-page .ipod {
+        width: 200px;
+    }
+}
+/* CSS for the index page ends here */
+/* CSS for the quizzes page starts here */
+.quizzes-page {
+    margin: 0;
+    padding: 0;
+    font-family: 'Fredoka One', cursive;
+    background: linear-gradient(135deg, #ffccff, #ccffff);
+    color: #333;
+    text-align: center;
+}
+.quizzes-page header {
+    background-color: #ff66cc;
+    color: white;
+    padding: 30px 20px;
+    font-size: 32px;
+    border-bottom: 5px dashed #9900ff;
+}
+.quizzes-page .quiz-container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #fff0f6;
+    border: 4px dotted #ff00ff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.3);
+}
+.quizzes-page h2 {
+    font-size: 24px;
+    color: #cc00cc;
+    margin-bottom: 20px;
+}
+.quizzes-page .question {
+    margin-bottom: 30px;
+    text-align: left;
+}
+.quizzes-page .question p {
+    font-size: 18px;
+    color: #333;
+}
+.quizzes-page label {
+    display: block;
+    padding: 5px 0;
+    font-size: 16px;
+}
+.quizzes-page .submit-btn {
+    margin-top: 20px;
+    background: #ff66cc;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.quizzes-page .submit-btn:hover {
+    background: #ff00aa;
+    box-shadow: 0 0 10px rgba(187, 81, 152, 0.5);
+}
+.quizzes-page footer {
+    margin: 50px 0 20px;
+    font-size: 12px;
+    color: #666;
+}
+.quizzes-page footer a {
+    color: #ff00ff;
+    text-decoration: none;
+}
+.quizzes-page footer a:hover {
+    text-decoration: underline;
+}
+/* CSS for the quizzes page ends here */
+/* CSS for the games page starts here */
+.games-page {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive;
+    background: linear-gradient(135deg, #b7ffb3, #d0f4ff);
+    text-align: center;
+    color: #222;
+}
+
+.games-page h1 {
+    padding: 20px;
+    font-size: 36px;
+    color: #004d40;
+    text-shadow: 1px 1px #00ffcc;
+}
+
+.games-page .card-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.games-page .game-card {
+    background: #ccffe6;
+    border: 3px dashed #00cc99;
+    border-radius: 15px;
+    padding: 20px;
+    width: 250px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.games-page .game-card:hover {
+    transform: scale(1.05);
+    background: #b3ffd9;
+}
+
+.games-page .game-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00695c;
+}
+
+.games-page .popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    border: 4px solid #00cc99;
+    border-radius: 10px;
+    padding: 30px;
+    z-index: 1000;
+    width: 90%;
+    max-width: 600px;
+}
+
+.games-page .popup-close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #ff0066;
+}
+/* CSS for the games page ends here */
+/* CSS for the about page starts here */
+
+.about-page {
+    font-family: 'Special Elite', cursive;
+    background: linear-gradient(135deg, #f0f0f0, #d0d0d0);
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+.about-page h1 {
+    background-color: #e27126;
+    color: #000;
+    padding: 20px;
+    font-size: 32px;
+    border-bottom: 5px solid #ff9900;
+}
+.about-page p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+}
+.about-page .back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #e27126;;
+    font-size: 18px;
+    border-radius: 5px;
+}
+.about-page .back-button:hover {
+    background: #37e423;
+    box-shadow: 0 0 10px rgba(255, 51, 0, 0.5);
+}
+/* CSS for the about page ends here */
+/* CSS for the tv page starts here */
+.tv-page body {
+    margin: 0;
+    font-family: 'Lilita One', sans-serif;
+    background: #111;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.tv-page .tv-frame {
+    position: relative;
+    width: 640px;
+    height: 520px;
+    margin: 0 auto;
+    transform-origin: center center; /* Ensure scaling happens from the center */
+    transition: transform 0.5s ease; /* Smooth scaling transition */
+}
+
+.tv-page .tv-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Ensure the TV frame is above the video */
+    pointer-events: none; /* Prevent the frame from blocking interactions */
+    background: url('gallery/tv.png') no-repeat center center;
+    background-size: contain;
+}
+
+.tv-page .tv-wrapper {
+    position: absolute;
+    top: 14%;
+    left: 25%;
+    width: 50%;
+    height: 58%;
+    background: #000;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.tv-page video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video fills the wrapper */
+    z-index: 1;
+}
+
+.tv-page .static-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif') center/cover no-repeat;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+    z-index: 10;
+}
+
+.tv-page .remote-container {
+    position: absolute;
+    top: 50%;
+    right: 1%;
+    transform: translateY(-50%);
+    width: 20%;
+    max-width: 200px;
+}
+
+.tv-page .remote-image {
+    width: 100%;
+    display: block;
+    border: none;
+    box-shadow: none;
+    background: none;
+}
+
+.tv-page .sit-button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 20px;
+    border: 2px dashed #0ff;
+    background: #222;
+    color: #0ff;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.tv-page .sit-button:hover {
+    background: #0ff;
+    color: #000;
+}
+@media (max-width: 768px) {
+    .tv-page .tv-frame {
+        width: 90%;
+        height: auto;
+    }
+    .tv-page .tv-wrapper {
+        top: 15%;
+        left: 15%;
+        width: 70%;
+        height: 55%;
+    }
+    .tv-page .sit-button {
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+    }
+    .tv-page .remote-container {
+        width: 200px;
+        max-width: 30%;
+        right: 2%;
+    }
+} 
+/* CSS for the TV page ends here */
+/* CSS for the enter page starts here */
+.enter-page {
+    background: linear-gradient(135deg, #4ff, #004);
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    text-align: center;
+    padding: 40px;
+}
+.enter-page .container {
+    max-width: 800px;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.6);
+    border: 3px dashed #0ff;
+    padding: 40px;
+    border-radius: 20px;
+}
+.enter-page h1 {
+    font-size: 2rem;
+    text-shadow: 2px 2px #000;
+}
+.enter-page ul {
+    text-align: left;
+    margin: 20px auto;
+    padding-left: 40px;
+    max-width: 500px;
+}
+.enter-page li {
+    margin-bottom: 10px;
+}
+  .enter-page .enter-button {
+    margin-top: 40px;
+    padding: 20px 40px;
+    font-size: 1rem;
+    background: #0ff;
+    color: #000;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #fff;
+    transition: all 0.3s ease;
+  }
+  .enter-page .enter-button:hover {
+    background: #fff;
+    color: #0ff;
+}
+/* CSS for the enter page ends here */
+/* CSS for the videos starts here */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(180deg, #000, #202020);
+    color: #fff;
+    padding: 20px;
+  }
+  h1 {
+    font-size: 2rem;
+    color: #0ff;
+    text-align: center;
+    text-shadow: 1px 1px #333;
+  }
+  .video-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+  }
+  .video-card {
+    width: 340px;
+    background: #111;
+    border: 2px solid #0ff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px #0ff;
+    transition: transform 0.3s ease;
+  }
+  .video-card:hover {
+    transform: scale(1.05);
+  }
+  .video-card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .video-card iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+  }
+  footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #aaa;
+  }

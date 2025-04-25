@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <head>
+    </head>
+<body class="games-page">
+<link rel="stylesheet" href="styles.css">
+</style>
+</head>
+<body>
+  <h1>Games Arcade</h1>
+
+  <div class="card-container">
+    <div class="game-card" onclick="showGame('typing')">
+      <div class="game-title">💬 Typing Blitz</div>
+    </div>
+    <div class="game-card" onclick="showGame('reflex')">
+      <div class="game-title">⚡ Reflex Click</div>
+    </div>
+    <div class="game-card" onclick="showGame('memory')">
+      <div class="game-title">🧠 Memory Match</div>
+    </div>
+  </div>
+
+  <div id="typing" class="popup">
+    <div class="popup-close" onclick="hideGame('typing')">✖</div>
+    <h2>Typing Blitz</h2>
+    <p>Type this word: <span id="targetWord">dunkaroos</span></p>
+    <input type="text" id="typingInput" />
+    <div id="typingResult"></div>
+  </div>
+
+  <div id="reflex" class="popup">
+    <div class="popup-close" onclick="hideGame('reflex')">✖</div>
+    <h2>Reflex Click</h2>
+    <p id="reflexMsg">Wait for GREEN...</p>
+    <button id="reflexBtn" style="padding:20px 50px; font-size:24px;">WAIT</button>
+  </div>
+
+  <div id="memory" class="popup">
+    <div class="popup-close" onclick="hideGame('memory')">✖</div>
+    <h2>Memory Match</h2>
+    <p style="font-size:14px;">(Coming soon - placeholder 🧩)</p>
+  </div>
+
+  <script>
+    function showGame(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function hideGame(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    // Typing Game
+    const typingInput = document.getElementById("typingInput");
+    typingInput?.addEventListener("input", function () {
+      const word = document.getElementById("targetWord").textContent.trim();
+      if (this.value.trim().toLowerCase() === word.toLowerCase()) {
+        document.getElementById("typingResult").textContent = "Correct! ✨";
+      } else {
+        document.getElementById("typingResult").textContent = "";
+      }
+    });
+
+    // Reflex Click Game
+    let canClick = false;
+    let timeout;
+    const reflexBtn = document.getElementById("reflexBtn");
+    const reflexMsg = document.getElementById("reflexMsg");
+
+    reflexBtn?.addEventListener("click", () => {
+      if (!canClick) {
+        reflexMsg.textContent = "Too soon! ❌";
+        clearTimeout(timeout);
+        setTimeout(startReflex, 2000);
+      } else {
+        reflexMsg.textContent = "Nice reflexes! ⚡";
+        reflexBtn.style.background = "gray";
+        canClick = false;
+        setTimeout(startReflex, 2000);
+      }
+    });
+
+    function startReflex() {
+      reflexMsg.textContent = "Wait for GREEN...";
+      reflexBtn.style.background = "#aaa";
+      reflexBtn.textContent = "WAIT";
+      timeout = setTimeout(() => {
+        reflexMsg.textContent = "CLICK NOW!";
+        reflexBtn.style.background = "#00ff66";
+        reflexBtn.textContent = "CLICK";
+        canClick = true;
+      }, Math.random() * 3000 + 2000);
+    }
+
+    startReflex();
+  </script>
+</body>
+</html>
